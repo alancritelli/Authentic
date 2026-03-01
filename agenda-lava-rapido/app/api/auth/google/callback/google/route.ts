@@ -1,0 +1,14 @@
+import { NextResponse } from "next/server";
+
+export async function GET(req: Request) {
+  const { searchParams } = new URL(req.url);
+  const code = searchParams.get("code");
+
+  if (!code) {
+    return NextResponse.redirect("http://localhost:3000");
+  }
+
+  console.log("Código recebido:", code);
+
+  return NextResponse.redirect("http://localhost:3000/dashboard");
+}
